@@ -34,12 +34,9 @@ namespace WindowsFormsApp2
 
             // Получение значений из текстовых полей
             if (!double.TryParse(xmin.Text, out double xMin) ||
-                !double.TryParse(xmax.Text, out double xMax) ||sdffdsafds
+                !double.TryParse(xmax.Text, out double xMax) ||
                 !double.TryParse(k.Text, out double koef) ||
-                !double.TryParse(phase.Text, out double cosPhaseShift)) ||
-
-                !double.TryParse(k.Text, out double sinPhaseShift) ||
-                !double.TryParse(phase.Text, out double cosPhaseShift))
+                !double.TryParse(phase.Text, out double phaseShift))
             {
                 MessageBox.Show("Пожалуйста, введите корректные числовые значения.");
                 return;
@@ -52,7 +49,7 @@ namespace WindowsFormsApp2
             {
                 for (double x = xMin; x <= xMax; x += h)
                 {
-                    double y = Math.Sin(x + sinPhaseShift);
+                    double y = Math.Sin(koef * x + phaseShift);
                     chart1.Series["Sin(x)"].Points.AddXY(x, y);
                 }
             }
@@ -62,7 +59,7 @@ namespace WindowsFormsApp2
             {
                 for (double x = xMin; x <= xMax; x += h)
                 {
-                    double y = Math.Cos(x + cosPhaseShift);
+                    double y = Math.Cos(koef * x + phaseShift);
                     chart1.Series["Cos(x)"].Points.AddXY(x, y);
                 }
             }
@@ -70,17 +67,14 @@ namespace WindowsFormsApp2
 
         private void chart1_Click(object sender, EventArgs e)
         {
-            // Обработчик события для chart1 (можно оставить пустым или добавить функционал)
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            // Обработчик события для label1 (можно оставить пустым или добавить функционал)
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-            // Обработчик события для label5 (можно оставить пустым или добавить функционал)
         }
     }
 }
