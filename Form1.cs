@@ -34,7 +34,7 @@ namespace WindowsFormsApp2
 
             // Получение значений из текстовых полей
             if (!double.TryParse(xmin.Text, out double xMin) ||
-                !double.TryParse(xmax.Text, out double xMax) ||
+                !double.TryParse(xmax.Text, out double xMax) ||sdffdsafds
                 !double.TryParse(k.Text, out double koef) ||
                 !double.TryParse(phase.Text, out double cosPhaseShift)) ||
 
