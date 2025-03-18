@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.myChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBoxSin = new System.Windows.Forms.CheckBox();
             this.checkBoxCos = new System.Windows.Forms.CheckBox();
@@ -45,36 +45,36 @@
             this.label4 = new System.Windows.Forms.Label();
             this.xmax = new System.Windows.Forms.TextBox();
             this.xmin = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // chart1
+            // myChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(80, 21);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.IsXValueIndexed = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Sin(x)";
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.LabelBorderWidth = 4;
-            series4.Legend = "Legend1";
-            series4.Name = "Cos(x)";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(621, 256);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            chartArea1.Name = "MainArea";
+            this.myChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.myChart.Legends.Add(legend1);
+            this.myChart.Location = new System.Drawing.Point(80, 21);
+            this.myChart.Name = "myChart";
+            this.myChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            series1.BorderWidth = 3;
+            series1.ChartArea = "MainArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Sin(x)";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "MainArea";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.LabelBorderWidth = 4;
+            series2.Legend = "Legend1";
+            series2.Name = "Cos(x)";
+            this.myChart.Series.Add(series1);
+            this.myChart.Series.Add(series2);
+            this.myChart.Size = new System.Drawing.Size(621, 256);
+            this.myChart.TabIndex = 0;
+            this.myChart.Text = "myChart";
+            this.myChart.Click += new System.EventHandler(this.chart1_Click);
             // 
             // button1
             // 
@@ -85,7 +85,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Построить график функции";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.UpdateChart);
             // 
             // checkBoxSin
             // 
@@ -207,11 +207,11 @@
             this.Controls.Add(this.checkBoxCos);
             this.Controls.Add(this.checkBoxSin);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.myChart);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Графики";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,7 +219,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart myChart;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBoxSin;
         private System.Windows.Forms.CheckBox checkBoxCos;

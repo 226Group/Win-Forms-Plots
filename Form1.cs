@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -16,21 +17,23 @@ namespace WindowsFormsApp2
             // Инициализация значений по умолчанию
             xmin.Text = "-10"; // x min
             xmax.Text = "10";  // x max
-            k.Text = "0";    // sin(x) phase shift
-            phase.Text = "0";    // cos(x) phase shift
+            k.Text = "1";
+            phase.Text = "0";
+            checkBoxSin.CheckedChanged += (s, ev) => UpdateChart(s,ev);
+            checkBoxCos.CheckedChanged += (s, ev) => UpdateChart(s,ev);
+            Chart x = null;
+
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            // Вызываем метод для построения графика
-            BuildChart();
-        }
-
-        private void BuildChart()
+        private void UpdateChart(object sender, EventArgs e)
         {
             // Очистка графика перед построением
-            chart1.Series["Sin(x)"].Points.Clear();
-            chart1.Series["Cos(x)"].Points.Clear();
+            // Изменяем не улаляем
+            //myChart.ChartAreas.Clear();
+            myChart.Series.Clear();
+
+            //myChart.Series["Sin(x)"].Points.Clear();
+            //myChart.Series["Cos(x)"].Points.Clear();
 
             // Получение значений из текстовых полей
             if (!double.TryParse(xmin.Text, out double xMin) ||
@@ -42,27 +45,53 @@ namespace WindowsFormsApp2
                 return;
             }
 
-            double h = 0.1; // Шаг
+            // Create a ChartArea
+            //ChartArea chartArea = new ChartArea("MainArea");
 
-            // Построение графика синуса
-            if (checkBoxSin.Checked)
+
+            // Set the axis limits
+            var chartArea = myChart.ChartAreas["MainArea"];
+            chartArea.AxisX.Minimum = xMin; // Set X-axis minimum
+            chartArea.AxisX.Maximum = xMax; // Set X-axis maximum
+            chartArea.AxisY.Minimum = -1; // Set Y-axis minimum
+            chartArea.AxisY.Maximum = 1; // Set Y-axis maximum
+
+
+            myChart.Series.Clear();
+
+            // Create and add sine series
+            Series sinSeries = new Series("Sin(x)")
             {
-                for (double x = xMin; x <= xMax; x += h)
+                ChartType = SeriesChartType.Line,
+                Color = Color.Blue
+            };
+            myChart.Series.Add(sinSeries);
+
+            // Create and add cosine series
+            Series cosSeries = new Series("Cos(x)")
+            {
+                ChartType = SeriesChartType.Line,
+                Color = Color.Red
+            };
+            myChart.Series.Add(cosSeries);
+
+
+            double h = 0.1; // Step
+            for (double x = xMin; x <= xMax; x += h)
+            {
+                if (checkBoxSin.Checked)
                 {
                     double y = Math.Sin(koef * x + phaseShift);
-                    chart1.Series["Sin(x)"].Points.AddXY(x, y);
+                    sinSeries.Points.AddXY(x, y);
+                }
+
+                if (checkBoxCos.Checked)
+                {
+                    double y = Math.Cos(koef * x + phaseShift);
+                    cosSeries.Points.AddXY(x, y);
                 }
             }
 
-            // Построение графика косинуса
-            if (checkBoxCos.Checked)
-            {
-                for (double x = xMin; x <= xMax; x += h)
-                {
-                    double y = Math.Cos(koef * x + phaseShift);
-                    chart1.Series["Cos(x)"].Points.AddXY(x, y);
-                }
-            }
         }
 
         private void chart1_Click(object sender, EventArgs e)
