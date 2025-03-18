@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.checkBoxSin = new System.Windows.Forms.CheckBox();
@@ -50,28 +50,31 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(80, 21);
+            chartArea1.Name = "MainArea";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(42, 21);
             this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.IsXValueIndexed = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Sin(x)";
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.LabelBorderWidth = 4;
-            series4.Legend = "Legend1";
-            series4.Name = "Cos(x)";
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(621, 256);
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Blue};
+            series1.BorderWidth = 3;
+            series1.ChartArea = "MainArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.IsXValueIndexed = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Sin(x)";
+            series2.BorderWidth = 3;
+            series2.ChartArea = "MainArea";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.LabelBorderWidth = 4;
+            series2.Legend = "Legend1";
+            series2.Name = "Cos(x)";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(715, 275);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -79,7 +82,8 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(244, 388);
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.Location = new System.Drawing.Point(242, 355);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(321, 30);
             this.button1.TabIndex = 1;
@@ -91,7 +95,7 @@
             // 
             this.checkBoxSin.AutoSize = true;
             this.checkBoxSin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxSin.Location = new System.Drawing.Point(42, 360);
+            this.checkBoxSin.Location = new System.Drawing.Point(76, 314);
             this.checkBoxSin.Name = "checkBoxSin";
             this.checkBoxSin.Size = new System.Drawing.Size(75, 28);
             this.checkBoxSin.TabIndex = 2;
@@ -102,7 +106,7 @@
             // 
             this.checkBoxCos.AutoSize = true;
             this.checkBoxCos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxCos.Location = new System.Drawing.Point(42, 390);
+            this.checkBoxCos.Location = new System.Drawing.Point(76, 348);
             this.checkBoxCos.Name = "checkBoxCos";
             this.checkBoxCos.Size = new System.Drawing.Size(81, 28);
             this.checkBoxCos.TabIndex = 3;
@@ -113,7 +117,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(122, 314);
+            this.label1.Location = new System.Drawing.Point(284, 310);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 24);
             this.label1.TabIndex = 4;
@@ -122,7 +126,7 @@
             // 
             // k
             // 
-            this.k.Location = new System.Drawing.Point(196, 318);
+            this.k.Location = new System.Drawing.Point(358, 314);
             this.k.Name = "k";
             this.k.Size = new System.Drawing.Size(22, 20);
             this.k.TabIndex = 5;
@@ -131,7 +135,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(224, 314);
+            this.label2.Location = new System.Drawing.Point(386, 310);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 24);
             this.label2.TabIndex = 6;
@@ -141,7 +145,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(301, 314);
+            this.label3.Location = new System.Drawing.Point(463, 310);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 24);
             this.label3.TabIndex = 7;
@@ -149,7 +153,7 @@
             // 
             // phase
             // 
-            this.phase.Location = new System.Drawing.Point(273, 318);
+            this.phase.Location = new System.Drawing.Point(435, 314);
             this.phase.Name = "phase";
             this.phase.Size = new System.Drawing.Size(22, 20);
             this.phase.TabIndex = 8;
@@ -158,7 +162,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(608, 361);
+            this.label5.Location = new System.Drawing.Point(608, 318);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 24);
             this.label5.TabIndex = 10;
@@ -169,7 +173,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(608, 394);
+            this.label4.Location = new System.Drawing.Point(608, 351);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 24);
             this.label4.TabIndex = 11;
@@ -177,7 +181,7 @@
             // 
             // xmax
             // 
-            this.xmax.Location = new System.Drawing.Point(686, 398);
+            this.xmax.Location = new System.Drawing.Point(686, 355);
             this.xmax.Name = "xmax";
             this.xmax.Size = new System.Drawing.Size(61, 20);
             this.xmax.TabIndex = 12;
@@ -185,7 +189,7 @@
             // 
             // xmin
             // 
-            this.xmin.Location = new System.Drawing.Point(686, 361);
+            this.xmin.Location = new System.Drawing.Point(686, 318);
             this.xmin.Name = "xmin";
             this.xmin.Size = new System.Drawing.Size(61, 20);
             this.xmin.TabIndex = 13;
@@ -194,7 +198,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(774, 413);
             this.Controls.Add(this.xmin);
             this.Controls.Add(this.xmax);
             this.Controls.Add(this.label4);
